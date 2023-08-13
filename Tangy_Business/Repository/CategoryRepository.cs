@@ -50,7 +50,8 @@ namespace Tangy_Business.Repository
 
         public async Task<IEnumerable<CategoryDTO>> GetAll()
         {
-            var categories = await Task.FromResult(_db.Categories.ToList());
+            //var categories = await Task.FromResult(_db.Categories.ToList());
+            var categories = await _db.Categories.ToListAsync();
             return _mapper.Map<IEnumerable<Category>, IEnumerable<CategoryDTO>>(categories);          
         }
 
